@@ -1,6 +1,7 @@
 package com.example.awa
 
 import android.content.DialogInterface
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -8,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.ListView
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
@@ -36,11 +38,14 @@ class MainActivity : AppCompatActivity() {
 
     val urlBase = "https://awa-webapi20240503164201.azurewebsites.net/"
 
+    private lateinit var ivUsuario: ImageView
+    private lateinit var ivConfiguracion: ImageView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
-
+        asignarReferencias()
         obtenerDetallesYCabecera()
 
         val button = findViewById<Button>(R.id.btnTomarAgua)
@@ -49,6 +54,19 @@ class MainActivity : AppCompatActivity() {
             enviarSolicitudPost()
             obtenerDetallesYCabecera()
 
+        }
+    }
+
+    fun asignarReferencias(){
+        ivUsuario = findViewById(R.id.ivUsuario)
+        ivUsuario.setOnClickListener {
+            val intent = Intent(this,MenuActivity::class.java)
+            startActivity(intent)
+        }
+        ivConfiguracion = findViewById(R.id.ivConfiguracion)
+        ivConfiguracion.setOnClickListener {
+            val intent = Intent(this,MenuActivity::class.java)
+            startActivity(intent)
         }
     }
 
