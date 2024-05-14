@@ -1,5 +1,6 @@
 package service
 
+import com.example.awa.entidades.Usuario
 import models.cabecera
 import models.detalle
 import okhttp3.ResponseBody
@@ -21,7 +22,22 @@ interface PostApiService {
 
     @POST("/api/Awa")
     fun enviarDatos(@Body datos: Datos): Call<ResponseBody>
+
+    //--------------------------------------------------------
+
+    @POST("/Usuario/Registrar")
+    fun registrarUsuario(@Body usuario:Usuario): Call<ResponseBody>
+
+    @POST("/Usuario/Editar")
+    fun editarUsuario(@Body usuario: Usuario): Call<ResponseBody>
+
+    @POST("/Login")
+    fun loginUsuario(@Body login: LoginDatos): Call<ResponseBody>
+
+    @POST("/Login/Reset")
+    fun resetPassword(@Body datos: Datos): Call<ResponseBody>
 }
 
 data class Datos(val id: String)
 data class Respuesta(val MSG: String, val IDMSG: Int)
+data class LoginDatos(val usuario: Usuario, val clave:String)

@@ -36,7 +36,7 @@ import service.Respuesta
 
 class MainActivity : AppCompatActivity() {
 
-    val urlBase = "https://awa-webapi20240503164201.azurewebsites.net/"
+    val urlBase = "https://api-node-awa1-production.up.railway.app"
 
     private lateinit var ivUsuario: ImageView
     private lateinit var ivConfiguracion: ImageView
