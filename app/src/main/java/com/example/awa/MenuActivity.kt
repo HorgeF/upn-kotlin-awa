@@ -34,7 +34,7 @@ class MenuActivity : AppCompatActivity() {
         }
         ivUsuarioMenu = findViewById(R.id.ivUsuarioMenu)
         ivUsuarioMenu.setOnClickListener {
-            val intent = Intent(this,MenuActivity::class.java)
+            val intent = Intent(this,ListarUsuarioActivity::class.java)
             startActivity(intent)
         }
         ivReportesMenu = findViewById(R.id.ivReportesMenu)

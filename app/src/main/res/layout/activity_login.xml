@@ -41,7 +41,7 @@
         app:srcCompat="@drawable/gota" />
 
     <EditText
-        android:id="@+id/editTextText"
+        android:id="@+id/txtUsuario1"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginStart="50dp"
@@ -57,7 +57,7 @@
         app:layout_constraintTop_toBottomOf="@+id/ivInicio" />
 
     <EditText
-        android:id="@+id/editTextText2"
+        android:id="@+id/txtcontrasena1"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginStart="50dp"
@@ -70,7 +70,7 @@
         android:paddingStart="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText" />
+        app:layout_constraintTop_toBottomOf="@+id/txtUsuario1" />
 
     <Button
         android:id="@+id/btnIniciarSesion"
@@ -95,7 +95,7 @@
         android:textColor="#3F51B5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText2" />
+        app:layout_constraintTop_toBottomOf="@+id/txtcontrasena1" />
 
     <TextView
         android:id="@+id/lblRegistrarse"

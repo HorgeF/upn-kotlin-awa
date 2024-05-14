@@ -15,6 +15,9 @@
         android:theme="@style/Theme.AWA"
         tools:targetApi="31">
         <activity
+            android:name=".ListarUsuarioActivity"
+            android:exported="false" />
+        <activity
             android:name=".RegistrarUsuarioActivity"
             android:exported="false" />
         <activity

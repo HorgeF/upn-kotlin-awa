@@ -1,5 +1,6 @@
 package service
 
+import com.example.awa.entidades.LoginDato
 import com.example.awa.entidades.Usuario
 import models.cabecera
 import models.detalle
@@ -9,19 +10,21 @@ import retrofit2.http.GET
 import retrofit2.http.POST
 import kotlin.collections.ArrayList
 import retrofit2.Call
-import retrofit2.Response
 
 
 interface PostApiService {
 
-    @GET("/api/AwaDetail/1")
+    @GET("/AwaDetail/1")
     suspend fun getDetalle():ArrayList<detalle>
 
-    @GET("/api/Awa/1")
+    @GET("/Awa/1")
     suspend fun getCabecera():cabecera
 
-    @POST("/api/Awa")
+    @POST("/Awa")
     fun enviarDatos(@Body datos: Datos): Call<ResponseBody>
+
+    @GET("/Usuarios")
+    suspend fun listarUsuarios(): ArrayList<Usuario>
 
     //--------------------------------------------------------
 
@@ -32,12 +35,11 @@ interface PostApiService {
     fun editarUsuario(@Body usuario: Usuario): Call<ResponseBody>
 
     @POST("/Login")
-    fun loginUsuario(@Body login: LoginDatos): Call<ResponseBody>
+    fun loginUsuario(@Body login: LoginDato): Call<ResponseBody>
 
     @POST("/Login/Reset")
-    fun resetPassword(@Body datos: Datos): Call<ResponseBody>
+    fun resetPassword(@Body datos: LoginDato): Call<ResponseBody>
 }
 
 data class Datos(val id: String)
 data class Respuesta(val MSG: String, val IDMSG: Int)
-data class LoginDatos(val usuario: Usuario, val clave:String)
