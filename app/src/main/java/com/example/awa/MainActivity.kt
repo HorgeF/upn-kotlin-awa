@@ -1,6 +1,5 @@
 package com.example.awa
 
-import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -15,22 +14,19 @@ import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
 import com.google.gson.Gson
+import com.google.gson.JsonArray
 import kotlinx.coroutines.launch
 import models.detalle
 import okhttp3.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import service.Datos
 import service.PostApiService
-import retrofit2.Call
-import java.io.IOException
-import retrofit2.Callback
-import retrofit2.Response
-import okhttp3.ResponseBody
 import service.Respuesta
 
 
@@ -136,9 +132,16 @@ class MainActivity : AppCompatActivity() {
                         val body = response.body()?.string()
                         Log.d("===","Respuesta del servidor: $body")
 
+                        //val gson = Gson()
+                        //val respuesta = gson.fromJson(body, Respuesta::class.java)
+
                         val gson = Gson()
-                        val respuesta = gson.fromJson(body, Respuesta::class.java)
-                        mostrarMensaje(respuesta.MSG)
+                        val array: JsonArray = gson.fromJson(body, JsonArray::class.java)
+                        var person: Respuesta = Respuesta("",0)
+                        for (element in array) {
+                            person = gson.fromJson(element, Respuesta::class.java)
+                        }
+                        mostrarMensaje(person.MSG)
 
                     } else {
 
