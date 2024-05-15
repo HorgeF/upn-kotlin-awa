@@ -17,10 +17,10 @@ interface PostApiService {
     @GET("/AwaDetail?id=1")
     suspend fun getDetalle():ArrayList<detalle>
 
-    @GET("/Awa/1")
+    @GET("/Awa/?id=1")
     suspend fun getCabecera():cabecera
 
-    @POST("/Awa?id=1")
+    @POST("/Awa")
     fun enviarDatos(@Body datos: Datos): Call<ResponseBody>
 
     @GET("/Usuarios")
