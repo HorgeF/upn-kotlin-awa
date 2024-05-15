@@ -14,13 +14,13 @@ import retrofit2.Call
 
 interface PostApiService {
 
-    @GET("/AwaDetail/1")
+    @GET("/AwaDetail?id=1")
     suspend fun getDetalle():ArrayList<detalle>
 
     @GET("/Awa/1")
     suspend fun getCabecera():cabecera
 
-    @POST("/Awa")
+    @POST("/Awa?id=1")
     fun enviarDatos(@Body datos: Datos): Call<ResponseBody>
 
     @GET("/Usuarios")
