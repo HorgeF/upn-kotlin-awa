@@ -17,7 +17,7 @@ interface PostApiService {
     @GET("/AwaDetail?id=1")
     suspend fun getDetalle():ArrayList<detalle>
 
-    @GET("/Awa/?id=1")
+    @GET("/Awa?id=1")
     suspend fun getCabecera():cabecera
 
     @POST("/Awa")
